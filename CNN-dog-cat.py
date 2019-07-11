@@ -2,6 +2,7 @@ import cv2
 import tensorflow as tf 
 
 categories = ["Dog", "Cat"]
+path = 'C:/Users/Chetan Tuli/Desktop/Dogs and cats samples/kitten.png'
 
 def prepare(filepath):
     img_size = 150
@@ -11,6 +12,6 @@ def prepare(filepath):
 
 model = tf.keras.models.load_model("64x3-CNN.model")
 
-prediction = model.predict([prepare('C:/Users/Chetan Tuli/Desktop/cat.png')])
+prediction = model.predict([prepare(path)])
 
 print(categories[int(prediction)])
