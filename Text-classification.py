@@ -80,9 +80,7 @@ results = model.evaluate(test_data, test_labels)
 
 print(results)
 
-predictions = model.predict(test_data)
-print(decode_review(test_data[100]))
-print (np.argmax(predictions[100]))
+
 
 
 
