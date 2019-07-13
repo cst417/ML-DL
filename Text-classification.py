@@ -15,20 +15,21 @@ print(len(train_data[0]), len(train_data[1]))      #Shows the number of words in
 
 #Convert the integers back to words
 
-# A dictionary mapping words to an integer index
+# A dictionary mapping words to an integer index. 
 word_index = imdb.get_word_index()
 
-# First indices are reserved
-word_index = {k:(v+3) for k,v in word_index.items()}
-word_index["<PAD>"] = 0
-word_index["<START>"] = 1
-word_index["<UNK>"] = 2
-word_index["<UNUSED>"] = 3
+# Introducing new keywords.Reserved keywords
+word_index = {k:(v+3) for k,v in word_index.items()}            #k = key ,  v= value
+word_index["<PAD>"] = 0             #padding
+word_index["<START>"] = 1           #start
+word_index["<UNK>"] = 2             #unknown - when you don't know what the word is
+word_index["<UNUSED>"] = 3          #unused - when words are unused 
 
-reverse_word_index = dict([[value, key] for (key, value) in word_index.items()])
+#flips the integer index to word
+reverse_word_index = dict([[value, key] for (key, value) in word_index.items()])    #reversing the mapping. Flipping from value,key to key value
 
 def decode_review(text):
-    return ' '.join([reverse_word_index.get(i, '?') for i in text])         #
+    return ' '.join([reverse_word_index.get(i, '?') for i in text])         #going through each of the entries in the text list which will list integers and checks if the integer is present in the reverse word index. If present then the integer is replaced with the word. Eg 105 might correspond to a word. If the word is not defined, then it would return a ?.
 
 
 # Prepare the data
@@ -40,7 +41,7 @@ def decode_review(text):
 train_data = tf.keras.preprocessing.sequence.pad_sequences(train_data, value=word_index["<PAD>"],padding='post',maxlen=256)
 test_data = tf.keras.preprocessing.sequence.pad_sequences(train_data, value=word_index["<PAD>"],padding='post',maxlen=256)
 
-print(len(train_data[0]), len(test_data[0]))
+# print(len(train_data[0]), len(test_data[0]))
 
 # input shape is the vocabulary count used for the movie reviews (10,000 words)
 vocab_size = 10000
