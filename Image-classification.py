@@ -5,11 +5,11 @@ import tensorflow as tf
 import pickle 
 import time
 
-name = "Cats-Dogs-{}".format(int(time.time()))
+#name = "Cats-Dogs-{}".format(int(time.time()))
 
-tensorboard = tf.keras.callbacks.TensorBoard(log_dir = 'logs\{}'.format(name))        
+#tensorboard = tf.keras.callbacks.TensorBoard(log_dir = 'logs\{}'.format(name))        
 
-x = pickle.load(open("X.pickel", "rb"))
+x = pickle.load(open("X.pickel", "rb"))   #typo but it still works!
 y = pickle.load(open("Y.pickel", "rb"))
 
 #normalize the data first
@@ -34,7 +34,7 @@ model.add(tf.keras.layers.Dense(1))
 model.add(tf.keras.layers.Activation("sigmoid"))
 
 model.compile(loss="binary_crossentropy", optimizer="adam", metrics=['accuracy'])
-model.fit(x, y, batch_size=32, validation_split=0.1, epochs=5, callbacks=[tensorboard])              #batch size = how many can be passed at once. You don't wanna pass 1 at a time or all at once
+model.fit(x, y, batch_size=32, validation_split=0.1, epochs=5)              #batch size = how many can be passed at once. You don't wanna pass 1 at a time or all at once
 
 
 
