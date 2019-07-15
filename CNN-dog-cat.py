@@ -2,7 +2,7 @@ import cv2
 import tensorflow as tf 
 
 categories = ["Dog", "Cat"]
-path = 'C:/Users/Chetan Tuli/Desktop/Dogs and cats samples/kitten.png'
+path = '@/../Samples'
 
 def prepare(filepath):
     img_size = 150
