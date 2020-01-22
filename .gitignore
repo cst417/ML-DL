@@ -123,3 +123,6 @@ dmypy.json
 .pyre/
 X.pickel
 Y.pickel
+*.jpg
+*.db
+*.pickle
