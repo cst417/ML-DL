@@ -9,7 +9,7 @@ import tensorflow as tf
 # from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
 
 
-DATADIR = "C:/Users/Chetan Tuli/Desktop/PetImages"
+DATADIR = "@/../PetImages"
 CATEGORIES = ["Dog", "Cat"]
 #iterating through dogs and cats
 
