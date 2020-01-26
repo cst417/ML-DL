@@ -126,3 +126,4 @@ Y.pickel
 *.jpg
 *.db
 *.pickle
+*.tsv
