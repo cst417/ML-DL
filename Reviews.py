@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix
+import numpy as np 
 
 data = pd.read_csv("Restaurant_Reviews.tsv", delimiter='\t', quoting= 3)
 
@@ -54,3 +55,5 @@ naiveb.fit(X_train,y_train)
 y_pred = naiveb.predict(X_test)
 matrix = confusion_matrix(y_test, y_pred)
 print(matrix)
+
+print(naiveb.predict([["Worst Food Ever"]]))
