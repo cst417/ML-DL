@@ -1,5 +1,6 @@
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 import pandas as pd 
+import nltk
 from sklearn.naive_bayes import MultinomialNB, GaussianNB
 from sklearn.pipeline import Pipeline
 from sklearn.pipeline import make_pipeline
@@ -29,6 +30,7 @@ def create_pipeline(estimator):
     steps.append(('classifier', estimator))
     return Pipeline(steps)
 
+nltk.download("stopwords")
 file = "movie_review.csv"
 col_list = ['text', 'tag', 'datz']
 
